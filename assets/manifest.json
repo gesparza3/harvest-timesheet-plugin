@@ -2,7 +2,7 @@
   "Actions": [
     {
       "Icon": "images/action1.icon",
-      "Name": "Your first action",
+      "Name": "Start Timer",
       "States": [
         {
           "Image": "images/action1.key",
@@ -11,16 +11,16 @@
         }
       ],
       "SupportedInMultiActions": false,
-      "Tooltip": "",
-      "UUID": "reverse.dns.formatted.namespace.action"
+      "Tooltip": "Testy test",
+      "UUID": "com.gesparza3.harvest-timesheet-manager.startTimer"
     }
   ],
   "SDKVersion": 2,
-  "Author": "your name",
+  "Author": "gesparza3",
   "CodePath": "plugin.html",
   "PropertyInspectorPath": "propertyinspector.html",
-  "Name": "streamdeck template",
-  "Description": "a description",
+  "Name": "Harvest Timesheet Manager",
+  "Description": "Manage Harvest Timesheets",
   "Icon": "images/pluginIcon",
   "Version": "0.0.0-development",
   "OS": [

@@ -1,11 +1,24 @@
 import { Streamdeck } from '@rweich/streamdeck-ts';
 
-const pi = new Streamdeck().propertyinspector();
+import { initStartTimerPi } from './startTimer/StartTimerPi';
 
-// your code here..
-pi.on('websocketOpen', (event) => {
-  console.log('got websocket-open-event!', event);
-  // eg. register input event listeners ...
+const pi = new Streamdeck().propertyinspector();
+pi.on('websocketOpen', ({ uuid }) => pi.getSettings(uuid));
+pi.on('didReceiveSettings', ({ action, settings }) => {
+  if (pi.pluginUUID === undefined) {
+    console.error('pi has no uuid! is it registered already?', pi.pluginUUID);
+    return;
+  }
+
+  switch (action.split('.').pop()) {
+    case 'starttimer': {
+      initStartTimerPi(pi, pi.pluginUUID, settings);
+      break;
+    }
+    default: {
+      throw new Error('no init function for action: ' + action);
+    }
+  }
 });
 
 export default pi;
